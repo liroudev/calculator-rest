@@ -87,6 +87,19 @@ namespace Project_API.Controllers
             return BadRequest("Invalid input");
         }
 
+        [HttpGet("squareRoot/{number}")]
+        public IActionResult GetSquareRoot(string number)
+        {
+            if(IsNumeric(number))
+            {
+                var calculo = Math.Sqrt(ConvertToDouble(number));
+                
+                return Ok(calculo.ToString());
+            }
+
+            return BadRequest("Invalid input");
+        }
+
         private bool IsNumeric(string param)
         {
             var isNumber = false;
@@ -110,6 +123,18 @@ namespace Project_API.Controllers
 
             return 0;
         }
+
+        private double ConvertToDouble (string param)
+        {
+
+            if( double.TryParse(param,out double numeroConvertido))
+            {
+                return numeroConvertido;
+            }
+
+            return 0.0;
+        }
+
 
     }
 }
