@@ -25,11 +25,53 @@ namespace Project_API.Controllers
             
             if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
             {
-                var sum = ConvertToDecimal(firstNumber) + ConvertToDecimal(secondNumber);
-                return Ok(sum.ToString());
+                var calcuo = ConvertToDecimal(firstNumber) + ConvertToDecimal(secondNumber);
+                return Ok(calcuo.ToString());
             }
 
             return BadRequest("Invalid Input");
+        }
+
+        [HttpGet("subtraction/{firstNumber}/{secondNumber}")]
+        public IActionResult Subtraction(string firstNumber,string secondNumber)
+        {
+            if(IsNumeric(firstNumber) && IsNumeric(secondNumber))
+            {
+                var calculo = ConvertToDecimal(firstNumber) - ConvertToDecimal(secondNumber);
+                return Ok(calculo.ToString());
+            }
+
+            return BadRequest("Invalid Input");
+        }
+
+        [HttpGet("multiplication/{firstNumber}/{secondNumber}")]
+        public IActionResult Multiplication(string firstNumber, string secondNumber)
+        {
+            if(IsNumeric(firstNumber) && IsNumeric(secondNumber))
+            {
+                var calculo = ConvertToDecimal(firstNumber) * ConvertToDecimal(secondNumber);
+                return Ok(calculo.ToString());
+            }
+
+            return BadRequest("Invalid Output");
+        }
+
+        [HttpGet("division/{firstNumber}/{secondNumber}")]
+        public IActionResult Division(string firstNumber, string secondNumber)
+        {
+            if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
+            {
+                if (ConvertToDecimal(secondNumber) == 0)
+                {
+                    return BadRequest("Division by zero not allowed");
+                }
+
+                var calculo = ConvertToDecimal(firstNumber) / ConvertToDecimal(secondNumber);
+
+                return Ok(calculo.ToString());
+            }
+
+            return BadRequest("Invalid input");
         }
 
         private bool IsNumeric(string param)
