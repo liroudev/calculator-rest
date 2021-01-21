@@ -20,7 +20,7 @@ namespace Project_API.Controllers
         }
 
         [HttpGet("sum/{firstNumber}/{secondNumber}")]
-        public IActionResult Get(string firstNumber, string secondNumber )
+        public IActionResult GetSum(string firstNumber, string secondNumber )
         {
             
             if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
@@ -33,7 +33,7 @@ namespace Project_API.Controllers
         }
 
         [HttpGet("subtraction/{firstNumber}/{secondNumber}")]
-        public IActionResult Subtraction(string firstNumber,string secondNumber)
+        public IActionResult GetSubtraction(string firstNumber,string secondNumber)
         {
             if(IsNumeric(firstNumber) && IsNumeric(secondNumber))
             {
@@ -45,7 +45,7 @@ namespace Project_API.Controllers
         }
 
         [HttpGet("multiplication/{firstNumber}/{secondNumber}")]
-        public IActionResult Multiplication(string firstNumber, string secondNumber)
+        public IActionResult GetMultiplication(string firstNumber, string secondNumber)
         {
             if(IsNumeric(firstNumber) && IsNumeric(secondNumber))
             {
@@ -57,7 +57,7 @@ namespace Project_API.Controllers
         }
 
         [HttpGet("division/{firstNumber}/{secondNumber}")]
-        public IActionResult Division(string firstNumber, string secondNumber)
+        public IActionResult GetDivision(string firstNumber, string secondNumber)
         {
             if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
             {
@@ -75,7 +75,7 @@ namespace Project_API.Controllers
         }
 
         [HttpGet("average/{firstNumber}/{secondNumber}")]
-        public IActionResult Average(string firstNumber,string secondNumber)
+        public IActionResult GetAverage(string firstNumber,string secondNumber)
         {
             if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
             {
