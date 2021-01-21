@@ -74,6 +74,19 @@ namespace Project_API.Controllers
             return BadRequest("Invalid input");
         }
 
+        [HttpGet("average/{firstNumber}/{secondNumber}")]
+        public IActionResult Average(string firstNumber,string secondNumber)
+        {
+            if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
+            {
+                var calculo = (ConvertToDecimal(firstNumber) + ConvertToDecimal(secondNumber)) / 2;
+
+                return Ok(calculo.ToString());
+            }
+
+            return BadRequest("Invalid input");
+        }
+
         private bool IsNumeric(string param)
         {
             var isNumber = false;
